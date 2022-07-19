@@ -1,10 +1,24 @@
 import React from 'react';
-import { Button } from 'antd';
-import './App.css';
+import { Layout , Input} from 'antd';
+
+import './App.less';
+
+const { Header, Footer, Sider, Content } = Layout;
+const { Search } =  Input;
 
 const App = () => (
   <div className="App">
-    <Button type="primary">Button</Button>
+      <Layout>
+      <Header className="head">
+        <Search className="search"></Search>
+      </Header>
+      <Layout>
+        <Sider className="star" width={"15%"}>Star</Sider>
+        <Content className="main">Main</Content>
+      </Layout>
+      <Content className="policy">Policy</Content>
+      <Footer className="info">Info</Footer>
+    </Layout>
   </div>
 );
 
