@@ -2,7 +2,7 @@ import React from 'react';
 import {Layout, Button} from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 
-import {init, selectApp} from './AppSlice.js';
+import {init, selectCurrStock} from './AppSlice.js';
 
 import Head from './Components/Head/Head.jsx';
 import './App.less';
@@ -11,7 +11,7 @@ import './App.less';
 const {Header, Footer, Sider, Content } = Layout;
 
 const App = () => {
-  const currStockCode = useSelector(selectApp);
+  const currStockCode = useSelector(selectCurrStock);
   const dispatch = useDispatch();
   
   return(

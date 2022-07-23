@@ -1,24 +1,22 @@
 import React from "react";
 import {Input} from "antd";
 
-import { useDispatch } from "react-redux";
-import {change} from '../../../AppSlice';
+import {useDispatch} from "react-redux";
+import {searchStock} from '../../../AppSlice';
 
 
 import './HeadSearch.less';
 
 const {Search} = Input;
 
-
-
 const HeadSearch = ()=>{
     const dispatch = useDispatch();
 
-    const handleSearch = (value)=>{
+    const handleSearch = (value,event)=>{
         if(value!==''){
-            dispatch(change(value));
+            dispatch(searchStock(value, event.target));
         }
-    };
+    }
 
     return (
 
