@@ -22,7 +22,7 @@ const HeadSearch = ()=>{
 
             <Search
             className="head-search"
-            placeholder="搜索股票"
+            placeholder="搜索股票 仅支持港股"
             allowClear
             onSearch={handleSearch}
             enterButton

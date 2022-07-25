@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import {init, selectCurrStock} from './AppSlice.js';
 
 import Head from './Components/Head/Head.jsx';
+import Policy from './Components/Policy/Policy.jsx';
+
 import './App.less';
 
 
@@ -28,7 +30,9 @@ const App = () => {
           <Button onClick={()=>dispatch(init())}>init</Button>
         </Content>
       </Layout>
-      <Content className="policy">Policy</Content>
+      <Content className="policy">
+        <Policy></Policy>
+      </Content>
       <Footer className="info">Info</Footer>
     </Layout>
   </div>

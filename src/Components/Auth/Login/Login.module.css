@@ -1,0 +1,55 @@
+/* @import 'ant-design-pro/dist/ant-design-pro.css'; */
+
+body{
+    background-color: #252A44;
+}
+
+.alertDiv{
+    width: 30%; min-height: 100px;
+    margin-left: 35%; margin-top: 10px;
+}
+
+.loginDiv{
+    width: 30%; min-height: 400px;
+    margin-left: 35%; margin-top: 100px;
+    background-color: whitesmoke;
+}
+
+.loginHead{
+    min-height: 3px;
+}
+
+.username{
+    margin-top: 50px;margin-left: 20%;
+    width: 60% !important; 
+    border:none !important;
+}
+
+.password{
+    margin-top: 40px;margin-left: 20%;
+    width: 60%;
+    border:none !important;
+}
+
+.registerBtn{
+    margin-top: 30px;margin-left: 20%;
+    width: 20%;
+}
+
+.findpwdBtn{
+    margin-top: 30px;margin-left: 20%;
+    width: 20%;
+}
+
+.findpwdBtn:hover{
+    color:rgb(36,131,255) !important;
+}
+
+.registerBtn:hover{
+    color:rgb(36,131,255) !important;
+}
+
+.loginBtn{
+    margin-top: 40px;margin-left: 40%;
+    width: 20%;
+}
