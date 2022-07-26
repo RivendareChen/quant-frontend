@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
-import { Input, Button, Divider, Alert } from 'antd';
+import React, {useState, useEffect, useCallback} from 'react';
+import { Input, Button, Divider} from 'antd';
 import { UserOutlined, KeyOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
+
+import AuthInfo from '../AuthInfo/AuthInfo';
+import {init, success, error} from '../AuthInfo/AuthInfoSlice';
 
 import styles from './Login.module.css';
 
@@ -13,26 +17,11 @@ export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
-  const [loginState, setloginState] = useState(true);
+
+  const dispatch = useDispatch();
   
   //路由跳转hook
   const navigate = useNavigate();
-
-  const showAlert = (good)=>{
-    console.log(good);
-    if(!good){
-      return (
-        <Alert
-          message="登录失败"
-          description="用户名或密码错误！"
-          type="error"
-          closable
-          showIcon
-          onClose={()=>{setloginState(true)}}
-        />
-      );
-    }
-  };
 
   const handleLogin = async()=>{
     console.log(username, password);
@@ -40,20 +29,37 @@ export default function Login() {
         username:username,
         password:password,
     });
-    const {state} = res.data;
+    const {state,msg} = res.data;
     if(state === false){
-      setloginState(false);
+      dispatch(error({msg:'登录', info:msg}));
     }
     else{
-      navigate('/');
+      dispatch(success({msg:'登录', info:'1秒后跳转至主页面'}));
+      //登录成功 一秒后跳转至主页
+      setTimeout(()=>{
+        navigate('/');
+      },1000);
     }
   }
+
+  useEffect(()=>{
+    console.log('welcome to Login Page');
+  },[]);
+
+  const clearAuthState = useCallback(()=>{
+    console.log('Login unmount');
+    dispatch(init());
+  },[dispatch]);
+
+  useEffect(()=>{
+    return clearAuthState;
+  },[clearAuthState]);
 
 
   return (
       <>
         <div className={styles.alertDiv}>
-          {showAlert(loginState)}
+          <AuthInfo></AuthInfo>
         </div>
 
         <div className={styles.loginDiv}>
