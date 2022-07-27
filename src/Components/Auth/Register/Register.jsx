@@ -55,14 +55,18 @@ export default function Register() {
             usermail:usermail,
             password:password1,
         };
-        // const {state,msg} = await axios.post('http://localhost:3000/register', registerInfo).data;
-        const res = await axios.post('http://localhost:3000/register', registerInfo);
-        const {state, msg} = res.data;
-        if(state === true){
-            dispatch(success({msg:'注册',info:'请在邮箱查收注册邮件以完成注册'}));
-        }
-        else{
-            dispatch(error({msg:'注册',info:msg}));
+        try{
+            const res = await axios.post('http://localhost:3000/register', registerInfo);
+            const {state, msg} = res.data;
+            if(state === true){
+                dispatch(success({msg:'注册',info:'请在邮箱查收注册邮件以完成注册'}));
+            }
+            else{
+                dispatch(error({msg:'注册',info:msg}));
+            }
+        }catch(err){
+            console.log(err);
+            dispatch(error({msg:'注册',info:'网络异常，请检查连接'}));
         }
     }
 

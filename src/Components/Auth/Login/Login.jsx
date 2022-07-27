@@ -24,24 +24,30 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async()=>{
-    console.log(username, password);
-    let res = await axios.post('http://localhost:3000/login', {
-        username:username,
-        password:password,
-    });
-    const {state,msg} = res.data;
-    if(state === false){
-      dispatch(error({msg:'登录', info:msg}));
-    }
-    else{
-      dispatch(success({msg:'登录', info:'1秒后跳转至主页面'}));
-      //登录成功 一秒后跳转至主页
-      setTimeout(()=>{
-        navigate('/');
-      },1000);
+    // console.log(username, password);
+    try{
+      let res = await axios.post('http://localhost:3000/login', {
+          username:username,
+          password:password,
+      });
+      const {state,msg} = res.data;
+      if(state === false){
+        dispatch(error({msg:'登录', info:msg}));
+      }
+      else{
+        dispatch(success({msg:'登录', info:'1秒后跳转至主页面'}));
+        //登录成功 一秒后跳转至主页
+        setTimeout(()=>{
+          navigate('/');
+        },1000);
+      }
+    }catch(err){
+      console.log(err);
+      dispatch(error({msg:'登录',info:'网络异常，请检查连接'}));
     }
   }
 
+  
   useEffect(()=>{
     console.log('welcome to Login Page');
   },[]);

@@ -1,0 +1,33 @@
+
+
+.authDiv{
+    float: right;
+}
+
+.registerBtn{
+    color: white !important;
+}
+
+.registerBtn:hover{
+    color:rgb(36,131,255) !important;
+}
+
+.loginBtn{
+    line-height: 10px !important;
+    border-radius: 5px !important;
+}
+
+.infoBtn{
+    color: rgb(36,131,255) !important;
+}
+
+.infoBtn:hover{
+    color: white !important;
+}
+
+.unregisterBtn{
+    line-height: 10px !important;
+    border-radius: 5px !important;
+    background-color: #F9293E !important;
+}
+

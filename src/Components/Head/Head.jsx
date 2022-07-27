@@ -1,14 +1,14 @@
 import React from "react";
 
 import HeadSearch from './HeadSearch/HeadSearch.jsx';
-import HeadButton from "./HeadButton/HeadButton.jsx";
+import HeadAuth from './HeadAuth/HeadAuth.jsx';
 import './Head.less';
 
 const Head = ()=>{
     return (
         <>
             <HeadSearch></HeadSearch>
-            <HeadButton></HeadButton>
+            <HeadAuth></HeadAuth>
         </>
     );
 };
