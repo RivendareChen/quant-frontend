@@ -1,0 +1,6 @@
+/* 全局变量 */
+:export {
+    testColor: pink;
+    mainColor: #141826;
+    bgColor: #252A44;
+}
