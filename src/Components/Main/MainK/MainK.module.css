@@ -4,3 +4,15 @@
     background-color: #141826;
     border-right: solid #252A44 3px;
 }
+
+.menu{
+    height: 50px;
+    background-color: #141826 !important;
+    border-bottom: solid #252A44 3px !important;
+}
+
+.kdata{
+    width:80%; min-height: 645px;
+    background-color: #141826;
+    
+}

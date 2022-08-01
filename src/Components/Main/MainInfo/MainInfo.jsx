@@ -1,22 +1,41 @@
 import React from 'react'
 import { Col, Row , Button} from 'antd';
+import { useEffect, useState} from 'react';
 import {DownloadOutlined, StarOutlined} from '@ant-design/icons';
+import { useSelector } from 'react-redux';
+import { selectCurrStock } from '../../../AppSlice';
 
+import { postRequest } from '../../../Tools/netRequest';
 import styles from './MainInfo.module.css';
 
 
 export default function MainInfo() {
+  const currStockCode = useSelector(selectCurrStock);
+  
+  const [infoData, setInfoData] = useState({});
+
+  useEffect(()=>{
+    postRequest('info', {code: currStockCode})
+    .then((data)=>{
+      setInfoData(data);
+    })
+    .catch((err)=>{
+      console.log(err);
+    });
+  },[currStockCode]);
+
+  
   return (
     <div className={styles.mainInfoDiv}>
       <Row>
         <Col span={20}>
           <div className={styles.name}>
-              <div style={{fontSize:'25px'}}>长和00001</div>
-              <div style={{textAlign:'center'}}>CKH HOLDINGS</div>
+              <div style={{fontSize:'25px'}}>{infoData.name}{infoData.code}</div>
+              <div style={{textAlign:'center'}}>{infoData.en}</div>
           </div>
           <div className={styles.name}>
-              <div style={{fontSize:'25px'}}>￥48.69</div>
-              <div style={{textAlign:'center'}}>+100%</div>
+              <div style={{fontSize:'25px'}}>￥{infoData.price}</div>
+              <div style={{textAlign:'center'}}>+{infoData.trend}%</div>
           </div>
           <div className={styles.star}>
             <StarOutlined style={{fontSize:'35px'}} />

@@ -1,8 +1,9 @@
 import React from "react";
-import {Input} from "antd";
+import {Input, message} from "antd";
 
 import {useDispatch} from "react-redux";
-import {searchStock} from '../../../AppSlice';
+import {change} from '../../../AppSlice';
+import { postRequest } from "../../../Tools/netRequest";
 
 
 import './HeadSearch.less';
@@ -12,9 +13,32 @@ const {Search} = Input;
 const HeadSearch = ()=>{
     const dispatch = useDispatch();
 
-    const handleSearch = (value,event)=>{
+    // const successInfo = (msg)=>{
+    //     message.success({content:msg,style:{marginTop:'220px',},duration:1});
+    // };
+
+    const warningInfo = (msg)=>{
+        message.warning({content:msg,style:{marginTop:'220px',},duration:1});
+    };
+
+    const errorInfo = (msg)=>{
+        message.error({content:msg,style:{marginTop:'220px',},duration:1});
+    };
+
+    const handleSearch = async(value,event)=>{
         if(value!==''){
-            dispatch(searchStock(value, event.target));
+            try{
+                const data = await postRequest('search', {code:value});
+                if(data.state === true){
+                    dispatch(change(data.code));
+                }
+                else{
+                    event.target.value = '';
+                    warningInfo(data.msg)
+                }
+            }catch(err){
+                errorInfo('网络拥塞，请稍后再试',1);
+            }
         }
     }
 
