@@ -1,5 +1,22 @@
 .main{
     float: right;
-    width: 20%;min-height: 695px;
+    width: 18%;height: 695px;
     background-color: #141826;
+}
+
+.label{
+    width: 100%;height: 50%;
+    background-color: #252A44
+}
+
+.name{
+    width: 100%;height: 10%;
+    background-color: rgb(15,18,31);
+}
+
+
+.col{
+    margin-top: 8px;
+    color: gray;
+    text-align: center;
 }

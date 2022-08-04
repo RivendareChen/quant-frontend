@@ -29,8 +29,6 @@ export default function MainK() {
   const currStock = useSelector(selectCurrStock);
 
 
-  
-
   //切割数组
   const splitData = (rawData)=>{
     let datas = []; 
@@ -145,20 +143,21 @@ export default function MainK() {
         color: [ma5Color, ma10Color, ma30Color, upColor, upColor, '#da6ee8', '#39afe6'],  //标签色
         grid: [{
           id: 'gd1',
-          left: '0%',
+          left: '1%',
           right: '1%',
           top: '5%',
           height: '50%', //主K线的高度,
+          containLabel:true,
         }, {
-          left: '0%',
+          left: '3%',
           right: '1%',
-          top: '56%',
+          top: '60%',
           height: '15%' //交易量图的高度
         }, {
-          left: '0%',
+          left: '3%',
           right: '1%',
-          top: '75%', //MACD 指标
-          height: '19%'
+          top: '80%', //MACD 指标
+          height: '15%'
         }],
         xAxis: [ //==== x轴
           { //主图
@@ -170,7 +169,7 @@ export default function MainK() {
               onZero: false
             },
             axisLabel: { //label文字设置
-              show: false
+              show: true,
             },
             splitLine: {
               show: false,
@@ -183,14 +182,17 @@ export default function MainK() {
             max: 'dataMax'
           }, { //交易量图
             type: 'category',
+            scale: true,
             gridIndex: 1,
             data: data.times,
             axisLabel: { //label文字设置
+              show:true,
               color: '#9b9da9',
-              fontSize: 10
+              // fontSize: 10
             },
           }, { //MACD图
             type: 'category',
+            scale: true,
             gridIndex: 2,
             data: data.times,
             axisLabel: {
@@ -201,20 +203,23 @@ export default function MainK() {
         yAxis: [ //y轴
           { //==主图
             scale: true,
-            // z:4,
             axisLabel: { //label文字设置
               color: '#c7c7c7',
-              inside: true, //label文字朝内对齐
+              inside: false, //label文字朝内对齐
             },
             splitLine: { //分割线设置
-              show: false,
+              show: true,
               lineStyle: {
-                color: '#181a23'
+                // color: '#181a23'
+                color:'#252A44',
               }
             },
+            axisLine:{
+              onZero: false,
+              show: false,
+            }
           }, { //交易图
             gridIndex: 1, splitNumber: 3, 
-            // z:4,
             axisLine: {
               onZero: false
             },
@@ -222,16 +227,19 @@ export default function MainK() {
               show: false
             },
             splitLine: {
-              show: false
+              show: true,
+              lineStyle: {
+                color:'#252A44',
+              }
             },
             axisLabel: { //label文字设置
               color: '#c7c7c7',
-              inside: true, //label文字朝内对齐 
-              fontSize: 8
+              inside: false, //label文字朝内对齐 
+              // fontSize: 8
             },
           }, { //MACD图
             // z:4, 
-            gridIndex: 2,splitNumber: 4,
+            gridIndex: 2,splitNumber: 3,
             axisLine: {
               onZero: false
             },
@@ -239,12 +247,15 @@ export default function MainK() {
               show: false
             },
             splitLine: {
-              show: false
+              show: true,
+              lineStyle: {
+                color:'#252A44',
+              }
             },
             axisLabel: { //label文字设置
               color: '#c7c7c7',
-              inside: true, //label文字朝内对齐 
-              fontSize: 8
+              inside: false, //label文字朝内对齐 
+              // fontSize: 8
             },
           }
         ],
@@ -254,14 +265,13 @@ export default function MainK() {
             start: 100,
             end: 25,
             throttle: 10,
-            top: '95%',
-            height: '3%',
+            top: '97%',
+            height: '2%',
             borderColor: '#696969',
             textStyle: {
               color: '#dcdcdc'
             },
             handleSize: '90%', //滑块图标
-            // handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
             dataBackground: {
               lineStyle: {
                 color: '#fff'
@@ -272,7 +282,7 @@ export default function MainK() {
             }
           },
         ],
-        animation: false, //禁止动画效果
+        animation: true, //动画效果
         backgroundColor: bgColor,
         blendMode: 'source-over',
         series: [{
@@ -283,14 +293,14 @@ export default function MainK() {
             large: true,
             largeThreshold: 100,
             itemStyle: {
-              normal: {
+              
                 color: upColor, //fd2e2e  ff4242
                 color0: downColor,
                 borderColor: upColor,
                 borderColor0: downColor,
       
                 //opacity:0.8
-              }
+              
             },
       
           }, {
@@ -300,11 +310,11 @@ export default function MainK() {
             smooth: true,
             symbol: "none", //隐藏选中时有小圆点
             lineStyle: {
-              normal: {
+              
                 opacity: 0.8,
                 color: '#39afe6',
                 width: 1
-              }
+              
             },
           },
           {
@@ -314,11 +324,11 @@ export default function MainK() {
             smooth: true,
             symbol: "none",
             lineStyle: { //标线的样式
-              normal: {
+              
                 opacity: 0.8,
                 color: '#da6ee8',
                 width: 1
-              }
+              
             }
           },
           {
@@ -328,11 +338,11 @@ export default function MainK() {
             smooth: true,
             symbol: "none",
             lineStyle: {
-              normal: {
+              
                 opacity: 0.8,
                 width: 1,
                 color: ma30Color
-              }
+              
             }
           }, {
             name: 'VOL',
@@ -340,19 +350,20 @@ export default function MainK() {
             xAxisIndex: 1,
             yAxisIndex: 1,
             data: data.vols,
-            barWidth: '60%',
+            // barWidth: '60%',
+            barWidth: '55%',
             itemStyle: {
-              normal: {
-                color: function(params) {
-                  let colorList;
-                  if (data.datas[params.dataIndex][1] > data.datas[params.dataIndex][0]) {
-                    colorList = upColor;
-                  } else {
-                    colorList = downColor;
-                  }
-                  return colorList;
-                },
-              }
+  
+              color: function(params) {
+                let currColor;
+                if (data.datas[params.dataIndex][1] > data.datas[params.dataIndex][0]) {
+                  currColor = upColor;
+                } else {
+                  currColor = downColor;
+                }
+                return currColor;
+              },
+              
             }
           }, {
             name: 'MACD',
@@ -360,9 +371,9 @@ export default function MainK() {
             xAxisIndex: 2,
             yAxisIndex: 2,
             data: macd.macd,
-            barWidth: '40%',
+            barWidth: '55%',
             itemStyle: {
-              normal: {
+              
                 color: function(params) {
                   let colorList;
                   if (params.data >= 0) {
@@ -372,7 +383,7 @@ export default function MainK() {
                   }
                   return colorList;
                 },
-              }
+              
             }
           }, {
             name: 'DIF',
@@ -382,10 +393,10 @@ export default function MainK() {
             yAxisIndex: 2,
             data: macd.dif,
             lineStyle: {
-              normal: {
+              
                 color: '#da6ee8',
                 width: 1
-              }
+              
             }
           }, {
             name: 'DEA',
@@ -395,11 +406,11 @@ export default function MainK() {
             yAxisIndex: 2,
             data: macd.dea,
             lineStyle: {
-              normal: {
+              
                 opacity: 0.8,
                 color: '#39afe6',
                 width: 1
-              }
+              
             }
           }
         ]
@@ -407,21 +418,58 @@ export default function MainK() {
   }
 
 
-
   const handleChangeType = (item)=>{
       setCurrType(item.key);
   }
 
+
   useEffect(()=>{
     setDataChart(echarts.init(document.getElementById('kdata')));
   },[]);
+
+  useEffect(()=>{
+    //为了防止React Hook useEffect has a missing dependency
+    //使用的函数要在effect内部声明
+    const handleResize = ()=>{
+      const {offsetWidth, offsetHeight} = document.getElementById('kdata');
+      // console.log(offsetWidth,offsetHeight);
+      dataChart.resize({
+        width: offsetWidth,
+        height: offsetHeight,
+      });
+    }
+
+    if(dataChart !== null){
+      const kdataDiv = document.getElementById('kdata');
+      const {offsetWidth, offsetHeight} = kdataDiv;
+      dataChart.resize({
+        width: offsetWidth,
+        height: offsetHeight,
+      });
+      window.addEventListener('resize', handleResize, true);
+    }
+
+    //add和remove的第二个参数的地址必须一致，这里需要在一个域中声明
+    return ()=>{
+      window.removeEventListener('resize',handleResize, true);
+    };
+
+  },[dataChart]);
+
+  // useEffect(()=>{
+  //   return ()=>{
+  //     console.log('unmount App');
+  //     window.removeEventListener('resize',handleResize, true);
+  //     console.log('remove ok');
+  //   };
+  // },[]);
   
   //useState的set方法是异步的，当后续代码必须在state更新后执行时
   //不比在一个useEffect中写，而是新起一个useEffect并申明只有当该state刷新时才生效
 
-  useEffect(()=>{
-    console.log(1);
-  })
+  // useEffect(()=>{
+  //   console.log(1);
+  // })
 
   useEffect(()=>{
     if(dataChart === null)return;
@@ -447,9 +495,7 @@ export default function MainK() {
         >
         </Menu>
 
-        <div className={styles.kdata} id="kdata">
-
-        </div>
+        <div className={styles.kdata} id="kdata"></div>
        
     </div>
   )

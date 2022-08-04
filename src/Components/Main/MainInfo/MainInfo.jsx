@@ -14,6 +14,17 @@ export default function MainInfo() {
   
   const [infoData, setInfoData] = useState({});
 
+  const showPrice = (trend)=>{
+    const fontColor = trend>0? '#F9293E':'#00aa3b';
+    const trendStr = trend>0? '+'+String(trend):String(trend);
+    return (
+      <div className={styles.name}>
+              <div style={{fontSize:'25px', color:fontColor}}>￥{infoData.price}</div>
+              <div style={{textAlign:'center', color:fontColor}}>{trendStr}%</div>
+          </div>
+    );
+  }
+
   useEffect(()=>{
     postRequest('info', {code: currStockCode})
     .then((data)=>{
@@ -33,23 +44,20 @@ export default function MainInfo() {
               <div style={{fontSize:'25px'}}>{infoData.name}{infoData.code}</div>
               <div style={{textAlign:'center'}}>{infoData.en}</div>
           </div>
-          <div className={styles.name}>
-              <div style={{fontSize:'25px'}}>￥{infoData.price}</div>
-              <div style={{textAlign:'center'}}>+{infoData.trend}%</div>
-          </div>
+          {showPrice(infoData.trend)}
           <div className={styles.star}>
             <StarOutlined style={{fontSize:'35px'}} />
           </div>
           <div className={styles.data1}>
-              <div>24H最高价</div>
+              <div style={{color:'gray'}}>24H最高价</div>
               <div>￥50.01</div>
           </div>
           <div className={styles.data}>
-              <div>24H最低价</div>
+              <div style={{color:'gray'}}>24H最低价</div>
               <div>￥48.55</div>
           </div>
           <div className={styles.data}>
-              <div>24H成交量</div>
+              <div style={{color:'gray'}}>24H成交量</div>
               <div>2456</div>
           </div>
         </Col>

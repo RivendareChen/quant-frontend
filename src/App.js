@@ -21,7 +21,7 @@ const App = () => {
         <Head></Head>
       </Header>
       <Layout>
-        <Sider className={styles.star} width={"20%"}>Star
+        <Sider className={styles.star} width={'15%'}>Star
         </Sider>
         <Content className={styles.main}>
           <Main></Main>
