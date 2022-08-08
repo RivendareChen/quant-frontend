@@ -1,0 +1,19 @@
+.title{
+    background-color: #0f121f;
+    min-height: 40px;
+}
+
+.titleFont{
+    display: inline-block;
+    margin-top: 2%;margin-left: 1%;
+    font-size: 18px;
+}
+
+.starLogin{
+    color:#2483ff !important;
+    /* width: 5px !important; */
+}
+
+.starInfo{
+    margin-top: 5%;margin-left: 2%;
+}

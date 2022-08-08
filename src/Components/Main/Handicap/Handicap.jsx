@@ -19,7 +19,7 @@ export default function Handicap() {
     postRequest('handicap', {code:currStock})
       .then((data)=>{
         setHandicapData(data);
-        console.log(currStock);
+        // console.log(currStock);
       })
       .catch((err)=>{
         console.log(err);

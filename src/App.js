@@ -4,6 +4,7 @@ import {Layout} from 'antd';
 import Head from './Components/Head/Head.jsx';
 import Main from './Components/Main/Main.jsx';
 import Policy from './Components/Policy/Policy.jsx';
+import Star from './Components/Star/Star.jsx';
 
 import styles from './App.module.css';
 
@@ -21,7 +22,8 @@ const App = () => {
         <Head></Head>
       </Header>
       <Layout>
-        <Sider className={styles.star} width={'15%'}>Star
+        <Sider className={styles.star} width={'15%'}>
+          <Star></Star>
         </Sider>
         <Content className={styles.main}>
           <Main></Main>
