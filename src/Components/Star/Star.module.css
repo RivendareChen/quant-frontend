@@ -1,3 +1,8 @@
+.main{
+    height: 775px;
+    overflow-y:auto;
+}
+
 .title{
     background-color: #0f121f;
     min-height: 40px;
@@ -16,4 +21,8 @@
 
 .starInfo{
     margin-top: 5%;margin-left: 2%;
+}
+
+.folder{
+    background-color: #252A44 !important;
 }

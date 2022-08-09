@@ -2,48 +2,25 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button, Menu} from 'antd';
-import {FolderOutlined ,StarOutlined} from '@ant-design/icons';
-import { nanoid } from 'nanoid';
-import { useDispatch } from 'react-redux';
+import {FolderOutlined, StarFilled} from '@ant-design/icons';
+import { useDispatch,useSelector} from 'react-redux';
 import { change } from '../../AppSlice';
+import { init, selectCurrStar} from './StarSlice';
 
+
+import StarItem from './StarItem/StarItem';
 import { postRequest } from '../../Tools/netRequest';
 
 import styles from './Star.module.css'
 
-const testItem = [
-    {
-        label:'全部股票', 
-        key:'item-all',
-        children:[
-            {label:'00001长和',key:nanoid()+'-00001',icon: <StarOutlined/>},
-            {label:'00002中电控股',key:nanoid()+'-00002',icon: <StarOutlined/>},
-            {label:'00003香港中华煤气',key:nanoid()+'-00003',icon: <StarOutlined/>}
-        ]
-    },
-    {
-        label:'自定股票集合1',
-        key:'item-1',
-        icon: <FolderOutlined />,
-        children:[
-            {label:'00001长和',key:nanoid()+'-00001',icon: <StarOutlined/>},
-        ]
-    },
-    {
-        label:'自定股票集合2',
-        key:'item-2',
-        icon: <FolderOutlined />,
-        children:[
-            {label:'00002中电控股',key:nanoid()+'-00002',icon: <StarOutlined/>},
-            {label:'00003香港中华煤气',key:nanoid()+'-00003',icon: <StarOutlined/>}
-        ]
-    }
-]
+
 
 export default function Star() {
 
     const [loginState, setLoginState] = useState(false);
     const [openKeys, setOpenKeys] = useState(['item-all']);
+
+    const starData = useSelector(selectCurrStar);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -58,15 +35,56 @@ export default function Star() {
         dispatch(change(stockId));
     }
 
+    const handleItem = (data)=>{
+        const tempData = [];
+
+        //所有股票
+        let currTotal = {
+            label:data.total.name,
+            key:'item-all',
+            children:[],
+        };
+        currTotal.children = data.total.children.map((code)=>{
+            return {
+                label: <StarItem code={code}/>,
+                key: currTotal.key+'-'+code,
+                icon: <StarFilled style={{color:'yellow'}}/>
+            }
+        });
+        tempData.push(currTotal);
+
+        // 各子收藏夹 分为两部分写 是为了确保全部股票在数组第一个
+        data.folders.map((item,index)=>{
+            currTotal = {
+                label:item.name,
+                key:'item-'+index,
+                icon:<FolderOutlined/>,
+                children:[],
+            }
+            currTotal.children = item.children.map((code)=>{
+                return {
+                    label: <StarItem code={code}/>,
+                    key: currTotal.key+'-'+code,
+                    icon: <StarFilled style={{color:'yellow'}}/>
+                }
+            });
+            tempData.push(currTotal);
+        });
+        return tempData;
+        
+    }
+
     const loginTemp = (
         <div>
             <Menu
             mode='inline'
+            inlineIndent={3}
             openKeys={openKeys}
             onOpenChange={onOpenChange}
             onSelect={onSelect}
             theme='dark'
-            items={testItem}
+            className={styles.folder}
+            items={handleItem(starData)}
             />
         </div>
     );
@@ -94,9 +112,19 @@ export default function Star() {
         });
     },[]);
 
+    useEffect(()=>{
+        postRequest('initstar',{})
+        .then((data)=>{
+            dispatch(init(data));
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    },[]);
+
 
     return (
-        <>
+        <div className={styles.main}>
             <div className={styles.title}>
                 <div className={styles.titleFont}>股票收藏</div>
             </div>
@@ -106,6 +134,6 @@ export default function Star() {
                 loginTemp:unloginTemp
             }
             </div>
-        </>
+        </div>
     )
 }
