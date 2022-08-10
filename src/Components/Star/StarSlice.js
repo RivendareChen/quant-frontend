@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { successInfo} from "../../Tools/Message";
 
 export const currStarSlice = createSlice({
     name:'currStar',
@@ -35,11 +36,35 @@ export const currStarSlice = createSlice({
             else{
                 totalArray.push(code);
             }
-        }
+        },
+
+        addFolder: (state, action)=>{
+            const folderArray = state.value.folders;
+            folderArray.push({
+                name:action.payload,
+                children:[],
+            });
+            successInfo(`新建文件夹${action.payload}`);
+        },
+
+        removeFolder: (state, action)=>{
+            const folderArray = state.value.folders;
+            const name = folderArray[action.payload].name;
+            folderArray.splice(action.payload,1);
+            successInfo(`删除文件夹: ${name}`);
+        },
+
+        removeStar: (state, action)=>{
+            const {folderIndex, codeIndex} = action.payload;
+            const folder = state.value.folders[folderIndex].children;
+            const code = folder[codeIndex];
+            folder.splice(codeIndex,1);
+            successInfo(`移除股票: ${code}`);
+        },
     }
 });
 
-export const {init, star} = currStarSlice.actions;
+export const {init, star, findFolder, addFolder, removeFolder, removeStar} = currStarSlice.actions;
 
 export const selectCurrStar = (store)=>{
     return store.currStar.value;
