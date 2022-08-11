@@ -150,12 +150,25 @@ export default function Star() {
                     {item.name}
                     <Popconfirm
                     title={`确认删除收藏夹: ${item.name} ?`}
-                    onConfirm={()=>{handleRemoveFolder(item.name)}}
+                    onConfirm={(e)=>{
+                        //当删除组件时，上层的Menu也被选中
+                        // console.log(e);
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // e.nativeEvent.stopImmediatePropagation();
+                        handleRemoveFolder(item.name)
+                    }}
                     okText="确认"
                     cancelText="取消"
                     >
                     <DeleteFilled 
                      className={styles.removeFolder}
+                     onClick={(e)=>{
+                        //当删除组件时，阻止上层的Menu也被选中
+                        e.preventDefault();
+                        e.stopPropagation();
+                        e.nativeEvent.stopImmediatePropagation();
+                     }}
                     />
                     </Popconfirm>
                 </div>,
@@ -170,7 +183,10 @@ export default function Star() {
                     icon: 
                     <Popconfirm
                     title={`确认将股票${code}从”${item.name}“中移除?`}
-                    onConfirm={()=>{handleRemoveStar(item.name, code)}}
+                    onConfirm={(e)=>{
+                        e.stopPropagation();
+                        handleRemoveStar(item.name, code)
+                    }}
                     okText="确认"
                     cancelText="取消"
                     >

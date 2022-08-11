@@ -1,13 +1,14 @@
 import React from 'react'
-import { Col, Row , Button} from 'antd';
+import { Col, Row } from 'antd';
 import { useEffect, useState} from 'react';
-import {DownloadOutlined, StarOutlined, StarFilled} from '@ant-design/icons';
+import {StarOutlined, StarFilled} from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCurrStock } from '../../../AppSlice';
 import { selectCurrStar, star } from '../../Star/StarSlice';
 
 import { postRequest } from '../../../Tools/netRequest';
 import { errorInfo, successInfo } from '../../../Tools/Message';
+import Operate from './Operate/Operate';
 import styles from './MainInfo.module.css';
 
 
@@ -81,7 +82,7 @@ export default function MainInfo() {
   return (
     <div className={styles.mainInfoDiv}>
       <Row>
-        <Col span={20}>
+        <Col span={16}>
           <div className={styles.name}>
               <div style={{fontSize:'25px'}}>{infoData.name}{infoData.code}</div>
               <div style={{textAlign:'center'}}>{infoData.en}</div>
@@ -103,14 +104,8 @@ export default function MainInfo() {
               <div>2456</div>
           </div>
         </Col>
-        <Col span={4}>
-          <Button 
-          type='primary' 
-          shape='round' 
-          icon={<DownloadOutlined/>}
-          className={styles.download}
-          >
-          盘后数据</Button>
+        <Col span={8}>
+          <Operate/>
         </Col>
       </Row>
     </div>

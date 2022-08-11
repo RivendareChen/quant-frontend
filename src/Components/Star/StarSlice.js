@@ -61,10 +61,18 @@ export const currStarSlice = createSlice({
             folder.splice(codeIndex,1);
             successInfo(`移除股票: ${code}`);
         },
+
+        addStar: (state , action)=>{
+            const {folderIndex, codeIndex} = action.payload;
+            const folder = state.value.folders[folderIndex].children;
+            const code = state.value.total.children[codeIndex];
+            folder.push(code);
+            successInfo(`添加股票: ${code}`);
+        }
     }
 });
 
-export const {init, star, findFolder, addFolder, removeFolder, removeStar} = currStarSlice.actions;
+export const {init, star, findFolder, addFolder, removeFolder, removeStar, addStar} = currStarSlice.actions;
 
 export const selectCurrStar = (store)=>{
     return store.currStar.value;
