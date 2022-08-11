@@ -1,0 +1,16 @@
+.menu{
+    height: 45px;width: 100%;
+    font-size: 18px !important;
+    text-align: center;
+    background-color: #141826 !important;
+    border-bottom: solid #252A44 3px !important;
+}
+
+.policyLogin{
+    color:#2483ff !important;
+    /* width: 5px !important; */
+}
+
+.policyInfo{
+    margin-top: 1%;margin-left: 1%;
+}

@@ -235,7 +235,7 @@ export default function Star() {
                 <Search
                 placeholder='新建股票收藏夹'
                 // allowClear
-                enterButton
+                enterButton="新建"
                 onSearch={handleAddFolder}
                 className={styles.inputBtn}
                 />

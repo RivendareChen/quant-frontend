@@ -32,7 +32,7 @@ const App = () => {
       <Content className={styles.policy}>
         <Policy></Policy>
       </Content>
-      <Footer className={styles.info}>Info</Footer>
+      <Footer className={styles.info}></Footer>
     </Layout>
   </div>
 )};

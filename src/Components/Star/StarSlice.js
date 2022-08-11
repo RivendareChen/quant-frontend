@@ -29,7 +29,7 @@ export const currStarSlice = createSlice({
                 foldersArray.map((item)=>{
                     const curr = item.children.findIndex((curr)=>curr===code);
                     if(curr>=0){
-                        item.children.splice(index,1);
+                        item.children.splice(curr,1);
                     }
                 })
             }

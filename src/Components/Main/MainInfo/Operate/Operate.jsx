@@ -22,7 +22,7 @@ export default function Operate() {
 
     const currStockCode = useSelector(selectCurrStock);
     const currStar = useSelector(selectCurrStar);
-    const [currFolder, setCurrFolder] = useState('');
+    const [currFolder, setCurrFolder] = useState(null);
 
     const handleDownload = ()=>{
         postRequest('download', {code:currStockCode})
@@ -85,6 +85,7 @@ export default function Operate() {
             console.log(err);
             errorInfo('网络故障，请检查连接');
         });
+        setCurrFolder(null);
     };
 
     const showFolders = ()=>{
@@ -101,6 +102,7 @@ export default function Operate() {
         showSearch
         placeholder="选择自定收藏夹"
         optionFilterProp="children"
+        value={currFolder}
         onChange={(value)=>{setCurrFolder(value)}}
         filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
         >

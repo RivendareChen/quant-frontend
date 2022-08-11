@@ -93,15 +93,15 @@ export default function MainInfo() {
           </div>
           <div className={styles.data1}>
               <div style={{color:'gray'}}>24H最高价</div>
-              <div>￥50.01</div>
+              <div>￥{infoData.high}</div>
           </div>
           <div className={styles.data}>
               <div style={{color:'gray'}}>24H最低价</div>
-              <div>￥48.55</div>
+              <div>￥{infoData.low}</div>
           </div>
           <div className={styles.data}>
               <div style={{color:'gray'}}>24H成交量</div>
-              <div>2456</div>
+              <div>{infoData.vol}</div>
           </div>
         </Col>
         <Col span={8}>
