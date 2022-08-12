@@ -56,10 +56,12 @@
     margin-top: 5%;margin-left: 2%;
 }
 
-.folder{
-    background-color: #0f121f !important;
+
+/* 记住 此处的folder不要再用style.folder了，而是用className="folder"写死 */
+:global(.folder .ant-menu-item-selected){
+    background-color: #191970 !important;
 }
 
-/* .ant-menu-dark .ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    background-color: red;
-} */
+:global(.folder){
+background-color: #0f121f !important;
+}

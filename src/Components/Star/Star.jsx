@@ -143,7 +143,7 @@ export default function Star() {
         tempData.push(currTotal);
 
         // 各子收藏夹 分为两部分写 是为了确保全部股票在数组第一个
-        data.folders.map((item,index)=>{
+        data.folders.forEach((item,index)=>{
             currTotal = {
                 label:
                 <div>
@@ -252,7 +252,8 @@ export default function Star() {
             onOpenChange={onOpenChange}
             onSelect={onSelect}
             theme='dark'
-            className={styles.folder}
+            // className={styles.folder}
+            className="folder"
             items={handleItem(starData)}
             />
         </div>

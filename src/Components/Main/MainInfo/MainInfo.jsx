@@ -1,5 +1,4 @@
 import React from 'react'
-import { Col, Row } from 'antd';
 import { useEffect, useState} from 'react';
 import {StarOutlined, StarFilled} from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
@@ -81,8 +80,7 @@ export default function MainInfo() {
   
   return (
     <div className={styles.mainInfoDiv}>
-      <Row>
-        <Col span={16}>
+      
           <div className={styles.name}>
               <div style={{fontSize:'25px'}}>{infoData.name}{infoData.code}</div>
               <div style={{textAlign:'center'}}>{infoData.en}</div>
@@ -103,11 +101,9 @@ export default function MainInfo() {
               <div style={{color:'gray'}}>24H成交量</div>
               <div>{infoData.vol}</div>
           </div>
-        </Col>
-        <Col span={8}>
+        
           <Operate/>
-        </Col>
-      </Row>
+        
     </div>
   )
 }

@@ -1,28 +1,8 @@
 .info{
     float: left;
     margin-left: 5px;
-    width: 55%;
+    width: 80%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-.trend{
-    
-    float: right;
-    margin-right: 0px;
-    font-size: 8px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.name{
-    display: inline;
-    font-size: 8px;
-}
-
-.code{
-    display: inline;
-    font-size: 8px;
 }

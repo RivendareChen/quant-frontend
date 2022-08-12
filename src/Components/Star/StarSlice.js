@@ -26,7 +26,7 @@ export const currStarSlice = createSlice({
                 //删除 ‘全部’ 中的股票
                 totalArray.splice(index,1);  
                 //删除各子文件夹中的股票
-                foldersArray.map((item)=>{
+                foldersArray.forEach((item)=>{
                     const curr = item.children.findIndex((curr)=>curr===code);
                     if(curr>=0){
                         item.children.splice(curr,1);
