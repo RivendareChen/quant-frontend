@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import RegisterPage from './routes/RegisterPage';
 import LoginPage from './routes/LoginPage';
-import TradePage from './routes/TradePage';
+// import TradePage from './routes/TradePage';
 import UserPage from './routes/UserPage';
 
 
@@ -23,9 +23,9 @@ root.render(
                 <Route path="/" element={<App />}></Route>
                 <Route path="/Register" element={<RegisterPage />}></Route>
                 <Route path="/Login" element={<LoginPage />}></Route>
-                <Route path="/Trade" element={<TradePage/>}>
+                {/* <Route path="/Trade" element={<TradePage/>}>
                     <Route path=":TradeId" element={<TradePage/>}></Route>
-                </Route>
+                </Route> */}
                 <Route path='User' element={<UserPage/>}>
                     <Route path=":username" element={<UserPage/>}></Route>
                 </Route>

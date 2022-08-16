@@ -44,7 +44,7 @@ export default function Policy() {
      .then((data)=>{
           setLoginState(data.state);
      })
-     .then((err)=>{
+     .catch((err)=>{
         console.log(err);
      })
   },[]);

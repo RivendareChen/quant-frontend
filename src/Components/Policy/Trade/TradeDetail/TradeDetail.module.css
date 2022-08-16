@@ -1,0 +1,13 @@
+
+.titleDiv{
+    text-align: center;
+    margin-top: 10px;
+}
+
+:global(.TradeDetailMain .ant-descriptions){
+    background-color: whitesmoke;
+}
+
+:global(.TradeDetailMain .ant-descriptions-item-content){
+    background-color: whitesmoke;
+}

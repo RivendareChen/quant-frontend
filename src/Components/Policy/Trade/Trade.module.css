@@ -1,0 +1,12 @@
+.infoDiv{
+    float: left;
+    margin-left: 5px;margin-top: 5px;
+    width: 49%;
+}
+
+.detailDiv{
+    float: right;
+    margin-right: 5px;margin-top: 5px;margin-bottom: 5px;
+    width: 49%;
+    background-color: whitesmoke;
+}
