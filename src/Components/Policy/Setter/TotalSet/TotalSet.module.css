@@ -1,0 +1,21 @@
+.setDiv{
+    width: 90%;
+    margin-left: 5%;margin-top: 20px;
+}
+
+.compButton{
+    background-color: #F9293E !important;
+    color:whitesmoke;
+    border: none;
+}
+
+.compButton:hover{
+    background-color: #F9293E ;
+    color:whitesmoke;
+}
+
+.listDiv{
+    width: 90%;
+    margin-left: 5%;margin-top: 20px;margin-bottom: 10px;
+    background-color: whitesmoke;
+}

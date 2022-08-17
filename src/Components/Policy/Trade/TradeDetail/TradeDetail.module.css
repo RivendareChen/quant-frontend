@@ -6,6 +6,7 @@
 
 :global(.TradeDetailMain .ant-descriptions){
     background-color: whitesmoke;
+    border-radius: 3px;
 }
 
 :global(.TradeDetailMain .ant-descriptions-item-content){

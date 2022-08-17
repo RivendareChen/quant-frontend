@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
+import zhCN from 'antd/es/locale/zh_CN';
+import { ConfigProvider } from 'antd';
 
 import App from './App';
 import RegisterPage from './routes/RegisterPage';
@@ -17,6 +19,7 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    <ConfigProvider locale={zhCN}>
     <Provider store={store}>
         <BrowserRouter>
             <Routes>
@@ -33,6 +36,7 @@ root.render(
             </Routes>
         </BrowserRouter>
     </Provider>
+    </ConfigProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

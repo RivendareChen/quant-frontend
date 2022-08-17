@@ -3,6 +3,7 @@ import currStockReducer from '../AppSlice.js';
 import headSearchReducer from '../Components/Head/HeadSearch/HeadSearchSlice.js';
 import authInfoReducer from '../Components/Auth/AuthInfo/AuthInfoSlice.js';
 import currStarReducer from '../Components/Star/StarSlice.js';
+import currPolicyReducer from '../Components/Policy/Setter/SetterSlice.js';
 
 export default configureStore({
     reducer:{
@@ -11,5 +12,6 @@ export default configureStore({
         headSearch: headSearchReducer,
         authInfo: authInfoReducer,
         currStar: currStarReducer,
+        currPolicy:currPolicyReducer,
     },
 });

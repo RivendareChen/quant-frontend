@@ -1,0 +1,49 @@
+.main{
+    width: 90%;
+}
+
+
+.setterSwitchDiv{
+    margin-top: 25px;margin-bottom: 20px;margin-left: 10px;
+    float: left;
+}
+
+.buysaleSwitch{
+    background-color: #F9293E !important;
+    border:none !important;
+}
+
+
+/* :global(.setterMainDiv .ant-switch-checked){
+    background-color: #F9293E;
+} 
+
+:global(.setterMainDiv .ant-switch){
+    background-color: #00aa3b;
+}  */
+
+
+
+.stockInput{
+    width: 100%;
+    margin-top: 20px;margin-left: 10px;
+}
+
+.amountInput{
+    width: 100%;
+    margin-top: 20px;margin-left: 10px;
+}
+
+.conditionDiv{
+    margin-top: 20px;margin-left: 10px;
+    width: 100%;
+}
+
+.buttonDiv{
+    margin-top: 20px;margin-bottom: 20px;
+    float: right;
+    color:#2483ff !important;
+}
+.buttonDiv:hover{
+    color:#2483ff;
+}
