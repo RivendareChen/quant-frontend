@@ -9,9 +9,8 @@ import { ConfigProvider } from 'antd';
 import App from './App';
 import RegisterPage from './routes/RegisterPage';
 import LoginPage from './routes/LoginPage';
-// import TradePage from './routes/TradePage';
 import UserPage from './routes/UserPage';
-
+import PolicyPage from './routes/PolicyPage';
 
 import store from './Store/store';
 
@@ -26,10 +25,10 @@ root.render(
                 <Route path="/" element={<App />}></Route>
                 <Route path="/Register" element={<RegisterPage />}></Route>
                 <Route path="/Login" element={<LoginPage />}></Route>
-                {/* <Route path="/Trade" element={<TradePage/>}>
-                    <Route path=":TradeId" element={<TradePage/>}></Route>
-                </Route> */}
-                <Route path='User' element={<UserPage/>}>
+                <Route path="/Policy" element={<PolicyPage/>}>
+                    <Route path=":PolicyId" element={<PolicyPage/>}></Route>
+                </Route>
+                <Route path='/User' element={<UserPage/>}>
                     <Route path=":username" element={<UserPage/>}></Route>
                 </Route>
                 <Route path="*" element={<div>404</div>}></Route>

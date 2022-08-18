@@ -3,6 +3,7 @@ import React from 'react'
 
 import ItemSet from './ItemSet/ItemSet';
 import ToTalSet from './TotalSet/ToTalSet';
+import ShowSet from './ShowSet/ShowSet';
 import styles from './Setter.module.css';
 
 
@@ -16,7 +17,7 @@ export default function Setter() {
         <ToTalSet/>
       </div>
       <div className={styles.showDiv}>
-        3
+        <ShowSet/>
       </div>
     </div>
   )

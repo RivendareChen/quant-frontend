@@ -7,6 +7,7 @@ export const currPolicySlice = createSlice({
     name:'currPolicy',
     initialState:{
         policys:[],
+        groups:[],
     },
     reducers:{
         init: (state)=>{
@@ -16,7 +17,7 @@ export const currPolicySlice = createSlice({
         add:(state,action)=>{
             const policy = action.payload;
             policy.key = nanoid();
-            state.policys.push(policy);
+            state.policys.unshift(policy);
         },
 
         remove:(state, action)=>{
@@ -30,14 +31,26 @@ export const currPolicySlice = createSlice({
             else{
                 console.log('未知错误');
             }
+        },
+
+        initGroup:(state,action)=>{
+            state.groups = action.payload;
+        },
+
+        addGroup: (state, action)=>{
+            state.groups.unshift(action.payload);
         }
     }
 });
 
-export const {init, add, remove} = currPolicySlice.actions;
+export const {init, add, remove, initGroup, addGroup} = currPolicySlice.actions;
 
 export const selectCurrPolicy = (store)=>{
     return store.currPolicy.policys;
+}
+
+export const selectCurrGroup = (store)=>{
+    return store.currPolicy.groups;
 }
 
 export default currPolicySlice.reducer;
