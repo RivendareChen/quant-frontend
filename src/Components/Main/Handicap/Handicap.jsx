@@ -50,23 +50,23 @@ export default function Handicap() {
 
         <div className={styles.label}>
         <Row className={styles.name}>
-            <Col span={7} className={styles.col}>买入价</Col>
+            <Col span={8} className={styles.col}>委托价格</Col>
             <Col span={8} className={styles.col}>委托数量</Col>
-            <Col span={9} className={styles.col}>交易时间</Col>
+            <Col span={8} className={styles.col}>委托订单数</Col>
         </Row>
         {handicapData.buyArray.map((item)=>{
-          return (<HandicapItem {...item} key={nanoid()}></HandicapItem>);
+          return (<HandicapItem {...item} type='buy' key={nanoid()}></HandicapItem>);
         })}</div>
 
 
         <div className={styles.label}>
           <Row className={styles.name}>
-              <Col span={7} className={styles.col}>卖出价</Col>
-              <Col span={8} className={styles.col}>委托数量</Col>
-              <Col span={9} className={styles.col}>交易时间</Col>
+           <Col span={8} className={styles.col}>委托价格</Col>
+            <Col span={8} className={styles.col}>委托数量</Col>
+            <Col span={8} className={styles.col}>委托订单数</Col>
           </Row>
           {handicapData.saleArray.map((item)=>{
-            return (<HandicapItem {...item} key={nanoid()}></HandicapItem>);
+            return (<HandicapItem {...item} type='sale' key={nanoid()}></HandicapItem>);
           })}</div>
         
     </div>

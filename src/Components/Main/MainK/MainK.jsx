@@ -115,19 +115,19 @@ export default function MainK() {
   };
 
   //设置echarts
-  const initKOption = (cdata)=>{
-    let data = splitData(cdata);
-    const retData = {
-      mas:{
-        ma5:calculateMA(5,data),
-        ma10:calculateMA(10,data),
-        ma30:calculateMA(30,data),
-      },
-      times:data.times,
-      vols:data.vols,
-      datas:data.datas,
-      macds:calcMACD(12,26,9,data.datas,1), 
-    };
+  const initKOption = (retData)=>{
+    // let data = splitData(cdata);
+    // const retData = {
+    //   mas:{
+    //     ma5:calculateMA(5,data),
+    //     ma10:calculateMA(10,data),
+    //     ma30:calculateMA(30,data),
+    //   },
+    //   times:data.times,
+    //   vols:data.vols,
+    //   datas:data.datas,
+    //   macds:calcMACD(12,26,9,data.datas,1), 
+    // };
     return {
         tooltip: { //弹框指示器
           trigger: 'axis',
