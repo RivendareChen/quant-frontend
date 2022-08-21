@@ -14,6 +14,7 @@ export default function StarItem(props) {
     const [currData, setCurrData] = useState({});
 
     const showInfo = ()=>{
+        
         if(currData.trend>0){
             return (
                 <div className={styles.info} style={{color:'#F9293E'}}>
@@ -31,6 +32,7 @@ export default function StarItem(props) {
     useEffect(()=>{
         postRequest('info',{code:code})
         .then((data)=>{
+            console.log(code,data.trend);
             setCurrData(data);
         })  
         .catch((err)=>{

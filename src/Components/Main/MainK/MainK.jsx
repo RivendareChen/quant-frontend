@@ -6,6 +6,7 @@ import * as echarts from 'echarts';
 
 import { selectCurrStock } from '../../../AppSlice';
 import { postRequest } from '../../../Tools/netRequest';
+import {errorInfo} from '../../../Tools/Message';
 import styles from './MainK.module.css';
 
 const bgColor   = "#141826";//背景
@@ -112,10 +113,21 @@ export default function MainK() {
     result.macd=macd;
     return result;
   };
+
   //设置echarts
   const initKOption = (cdata)=>{
     let data = splitData(cdata);
-    let macd = calcMACD(12,26,9,data.datas,1);  
+    const retData = {
+      mas:{
+        ma5:calculateMA(5,data),
+        ma10:calculateMA(10,data),
+        ma30:calculateMA(30,data),
+      },
+      times:data.times,
+      vols:data.vols,
+      datas:data.datas,
+      macds:calcMACD(12,26,9,data.datas,1), 
+    };
     return {
         tooltip: { //弹框指示器
           trigger: 'axis',
@@ -162,7 +174,7 @@ export default function MainK() {
         xAxis: [ //==== x轴
           { //主图
             type: 'category',
-            data: data.times,
+            data: retData.times,
             scale: true,
             boundaryGap: false,
             axisLine: {
@@ -184,7 +196,7 @@ export default function MainK() {
             type: 'category',
             scale: true,
             gridIndex: 1,
-            data: data.times,
+            data: retData.times,
             axisLabel: { //label文字设置
               show:true,
               color: '#9b9da9',
@@ -194,7 +206,7 @@ export default function MainK() {
             type: 'category',
             scale: true,
             gridIndex: 2,
-            data: data.times,
+            data: retData.times,
             axisLabel: {
               show: false
             }
@@ -288,7 +300,7 @@ export default function MainK() {
         series: [{
             name: 'K线',
             type: 'candlestick',
-            data: data.datas,
+            data: retData.datas,
             barWidth: '55%',
             large: true,
             largeThreshold: 100,
@@ -306,7 +318,7 @@ export default function MainK() {
           }, {
             name: 'MA5',
             type: 'line',
-            data: calculateMA(5,data),
+            data: retData.mas.ma5,
             smooth: true,
             symbol: "none", //隐藏选中时有小圆点
             lineStyle: {
@@ -320,7 +332,7 @@ export default function MainK() {
           {
             name: 'MA10',
             type: 'line',
-            data: calculateMA(10,data),
+            data: retData.mas.ma10,
             smooth: true,
             symbol: "none",
             lineStyle: { //标线的样式
@@ -334,7 +346,7 @@ export default function MainK() {
           {
             name: 'MA30',
             type: 'line',
-            data: calculateMA(30,data),
+            data: retData.mas.ma30,
             smooth: true,
             symbol: "none",
             lineStyle: {
@@ -349,14 +361,14 @@ export default function MainK() {
             type: 'bar',
             xAxisIndex: 1,
             yAxisIndex: 1,
-            data: data.vols,
+            data: retData.vols,
             // barWidth: '60%',
             barWidth: '55%',
             itemStyle: {
   
               color: function(params) {
                 let currColor;
-                if (data.datas[params.dataIndex][1] > data.datas[params.dataIndex][0]) {
+                if (retData.datas[params.dataIndex][1] > retData.datas[params.dataIndex][0]) {
                   currColor = upColor;
                 } else {
                   currColor = downColor;
@@ -370,7 +382,7 @@ export default function MainK() {
             type: 'bar',
             xAxisIndex: 2,
             yAxisIndex: 2,
-            data: macd.macd,
+            data: retData.macds.macd,
             barWidth: '55%',
             itemStyle: {
               
@@ -391,7 +403,7 @@ export default function MainK() {
             symbol: "none",
             xAxisIndex: 2,
             yAxisIndex: 2,
-            data: macd.dif,
+            data: retData.macds.dif,
             lineStyle: {
               
                 color: '#da6ee8',
@@ -404,7 +416,7 @@ export default function MainK() {
             symbol: "none",
             xAxisIndex: 2,
             yAxisIndex: 2,
-            data: macd.dea,
+            data: retData.macds.dea,
             lineStyle: {
               
                 opacity: 0.8,
@@ -475,8 +487,13 @@ export default function MainK() {
     if(dataChart === null)return;
     postRequest('kdata',{code:currStock, type:currType})
     .then((data)=>{
-      const option = initKOption(data);
-      dataChart.setOption(option);
+      if(data.state === true){
+        const option = initKOption(data.datas);
+        dataChart.setOption(option);
+      }
+      else{
+        errorInfo('获取k线数据失败!');
+      }
     })
     .catch((err)=>{
       console.log(err);

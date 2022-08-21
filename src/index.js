@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import zhCN from 'antd/es/locale/zh_CN';
@@ -23,12 +24,12 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />}></Route>
-                <Route path="/Register" element={<RegisterPage />}></Route>
-                <Route path="/Login" element={<LoginPage />}></Route>
-                <Route path="/Policy" element={<PolicyPage/>}>
+                <Route path="/register" element={<RegisterPage />}></Route>
+                <Route path="/login" element={<LoginPage />}></Route>
+                <Route path="/policy" element={<PolicyPage/>}>
                     <Route path=":PolicyId" element={<PolicyPage/>}></Route>
                 </Route>
-                <Route path='/User' element={<UserPage/>}>
+                <Route path='/user' element={<UserPage/>}>
                     <Route path=":username" element={<UserPage/>}></Route>
                 </Route>
                 <Route path="*" element={<div>404</div>}></Route>
