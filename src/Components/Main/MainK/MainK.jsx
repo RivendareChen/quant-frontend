@@ -31,90 +31,91 @@ export default function MainK() {
 
 
   //切割数组
-  const splitData = (rawData)=>{
-    let datas = []; 
-    let times = [];
-    let vols = []; 
-    for (let i = 0; i < rawData.length; i++) {
-      datas.push(rawData[i]);
-      // splice会修改数组 此处为删除数组第一个元素
-      times.push(rawData[i].splice(0, 1)[0]);
-      // 因为删除了数组第一个元素 所以vol由5递补到4
-      vols.push(rawData[i][4]); 
-    }
-    return {
-      datas:datas,
-      times:times,
-      vols:vols
-    };
-  }
-  //计算MA
-  const calculateMA = (dayCount,data)=>{
-    var result = [];
-    for (var i = 0, len = data.times.length; i < len; i++) {
-      if (i < dayCount) {
-        result.push('-');
-        continue;
-      }
-      var sum = 0;
-      for (var j = 0; j < dayCount; j++) {
-        sum += data.datas[i - j][1];
-      }
-      result.push((sum / dayCount).toFixed(2));
-    }
-    return result;
-  }
-  //计算EMA
-  const calcEMA = (n,data,field)=>{
-    var i,l,ema,a;
-    a=2/(n+1);
-    if(field){
-        //适配dif 计算ema26 ema12
-        ema=[data[0][field]];  
-        for(i=1,l=data.length;i<l;i++){
-            ema.push((a*data[i][field]+(1-a)*ema[i-1]).toFixed(2));
-        }
-    }else{
-        //适配dea 计算ema9
-        ema=[data[0]];
-        for(i=1,l=data.length;i<l;i++){
-            ema.push((a*data[i]+(1-a)*ema[i-1]).toFixed(3) );
-        }
-    } 
-    return ema;
-  };
-  //计算DIF
-  const calcDIF = (short,long,data,field)=>{
-    var i,l,dif,emaShort,emaLong;
-    dif=[];
-    emaShort=calcEMA(short,data,field);
-    emaLong=calcEMA(long,data,field);
-    for(i=0,l=data.length;i<l;i++){
-        dif.push((emaShort[i]-emaLong[i]).toFixed(3));
-    }
-    return dif;
-  };
-  //计算DEA
-  const calcDEA = (mid,dif)=>{
-    return calcEMA(mid,dif);
-  };
-  //计算MACD
-  const calcMACD = (short,long,mid,data,field)=>{
-    let i,l,dif,dea,macd,result;
-    result={};
-    macd=[];
-    dif=calcDIF(short,long,data,field);
-    dea=calcDEA(mid,dif);
-    for(i=0,l=data.length;i<l;i++){
-        macd.push(((dif[i]-dea[i])*2).toFixed(3));
-    }
-    result.dif=dif;
-    result.dea=dea;
-    result.macd=macd;
-    return result;
-  };
+  // const splitData = (rawData)=>{
+  //   let datas = []; 
+  //   let times = [];
+  //   let vols = []; 
+  //   for (let i = 0; i < rawData.length; i++) {
+  //     datas.push(rawData[i]);
+  //     // splice会修改数组 此处为删除数组第一个元素
+  //     times.push(rawData[i].splice(0, 1)[0]);
+  //     // 因为删除了数组第一个元素 所以vol由5递补到4
+  //     vols.push(rawData[i][4]); 
+  //   }
+  //   return {
+  //     datas:datas,
+  //     times:times,
+  //     vols:vols
+  //   };
+  // }
+  // //计算MA
+  // const calculateMA = (dayCount,data)=>{
+  //   var result = [];
+  //   for (var i = 0, len = data.times.length; i < len; i++) {
+  //     if (i < dayCount) {
+  //       result.push('-');
+  //       continue;
+  //     }
+  //     var sum = 0;
+  //     for (var j = 0; j < dayCount; j++) {
+  //       sum += data.datas[i - j][1];
+  //     }
+  //     result.push((sum / dayCount).toFixed(2));
+  //   }
+  //   return result;
+  // }
+  // //计算EMA
+  // const calcEMA = (n,data,field)=>{
+  //   var i,l,ema,a;
+  //   a=2/(n+1);
+  //   if(field){
+  //       //适配dif 计算ema26 ema12
+  //       ema=[data[0][field]];  
+  //       for(i=1,l=data.length;i<l;i++){
+  //           ema.push((a*data[i][field]+(1-a)*ema[i-1]).toFixed(2));
+  //       }
+  //   }else{
+  //       //适配dea 计算ema9
+  //       ema=[data[0]];
+  //       for(i=1,l=data.length;i<l;i++){
+  //           ema.push((a*data[i]+(1-a)*ema[i-1]).toFixed(3) );
+  //       }
+  //   } 
+  //   return ema;
+  // };
+  // //计算DIF
+  // const calcDIF = (short,long,data,field)=>{
+  //   var i,l,dif,emaShort,emaLong;
+  //   dif=[];
+  //   emaShort=calcEMA(short,data,field);
+  //   emaLong=calcEMA(long,data,field);
+  //   for(i=0,l=data.length;i<l;i++){
+  //       dif.push((emaShort[i]-emaLong[i]).toFixed(3));
+  //   }
+  //   return dif;
+  // };
+  // //计算DEA
+  // const calcDEA = (mid,dif)=>{
+  //   return calcEMA(mid,dif);
+  // };
+  // //计算MACD
+  // const calcMACD = (short,long,mid,data,field)=>{
+  //   let i,l,dif,dea,macd,result;
+  //   result={};
+  //   macd=[];
+  //   dif=calcDIF(short,long,data,field);
+  //   dea=calcDEA(mid,dif);
+  //   for(i=0,l=data.length;i<l;i++){
+  //       macd.push(((dif[i]-dea[i])*2).toFixed(3));
+  //   }
+  //   result.dif=dif;
+  //   result.dea=dea;
+  //   result.macd=macd;
+  //   return result;
+  // };
 
   //设置echarts
+  
   const initKOption = (retData)=>{
     // let data = splitData(cdata);
     // const retData = {
@@ -236,7 +237,7 @@ export default function MainK() {
               onZero: false
             },
             axisTick: {
-              show: false
+              show: false,
             },
             splitLine: {
               show: true,
@@ -245,8 +246,18 @@ export default function MainK() {
               }
             },
             axisLabel: { //label文字设置
+              show:true,
               color: '#c7c7c7',
               inside: false, //label文字朝内对齐 
+              formatter:function(value){
+                if(value>1000 && value<1000000){
+                  return (value/1000).toFixed(0)+'k';
+                }
+                if(value>=1000000){
+                  return (value/1000000).toFixed(0)+'m';
+                }
+                return value;
+              }
               // fontSize: 8
             },
           }, { //MACD图

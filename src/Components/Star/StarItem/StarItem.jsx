@@ -32,7 +32,7 @@ export default function StarItem(props) {
     useEffect(()=>{
         postRequest('info',{code:code})
         .then((data)=>{
-            console.log(code,data.trend);
+            // console.log(code,data.trend);
             setCurrData(data);
         })  
         .catch((err)=>{

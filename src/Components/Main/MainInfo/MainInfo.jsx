@@ -4,11 +4,35 @@ import {StarOutlined, StarFilled} from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCurrStock } from '../../../AppSlice';
 import { selectCurrStar, star } from '../../Star/StarSlice';
+import {Badge} from 'antd';
 
 import { postRequest } from '../../../Tools/netRequest';
 import { errorInfo, successInfo } from '../../../Tools/Message';
 import Operate from './Operate/Operate';
 import styles from './MainInfo.module.css';
+
+const marketStateArray = [
+  '无交易', //0
+  '竞价',   //1
+  '早盘前等待开盘', //2
+  '早盘',//3
+  '午间休市',//4
+  '午盘',//5
+  '收盘',//6
+  '未知状态',//7
+  '盘前',//8
+  '盘前结束',//9
+  '盘后',//10
+  '盘后结束',//11
+  '未知状态',//12
+  '夜市开盘',//13
+  '夜市收盘',//14
+  '期指日市开盘',//15
+  '期指日市休市',//16
+  '期指日市收盘',//17
+  '期指日市等待开盘',//18
+  '盘后竞价',//19
+];
 
 
 export default function MainInfo() {
@@ -66,6 +90,23 @@ export default function MainInfo() {
       }
   };
 
+  const showMarketState = (marketCode)=>{
+      let badgeState = 'warning';
+      let marketText = '未知状态';
+      if(marketCode === 3 || marketCode===5 || marketCode===13 || marketCode===15){
+        badgeState = 'processing';
+      }
+      if(marketCode>=0 && marketCode<=19){
+        marketText=marketStateArray[marketCode];
+      }
+      return (
+        <Badge 
+         status={badgeState} 
+         text={<span className={styles.badgeText}>{marketText}</span>}
+        />
+      );
+  }
+
 
   useEffect(()=>{
       postRequest('info', {code: currStockCode})
@@ -100,6 +141,10 @@ export default function MainInfo() {
           <div className={styles.data}>
               <div style={{color:'gray'}}>24H成交量</div>
               <div>{infoData.vol}</div>
+          </div>
+          <div className={styles.data}>
+              <div style={{color:'gray'}}>市场状态·HK</div>
+              <div>{showMarketState(infoData.marketState)}</div>
           </div>
         
           <Operate/>
