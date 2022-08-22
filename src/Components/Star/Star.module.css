@@ -47,6 +47,14 @@
     margin-top: 8px;
 }
 
+.main::-webkit-scrollbar{
+    width: 4px;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background-color: #404040;
+}
+
 .starLogin{
     color:#2483ff !important;
     /* width: 5px !important; */
@@ -59,7 +67,7 @@
 
 /* 记住 此处的folder不要再用style.folder了，而是用className="folder"写死 */
 :global(.folder .ant-menu-item-selected){
-    background-color: #191970 !important;
+    background-color: #202030 !important;
 }
 
 :global(.folder){
