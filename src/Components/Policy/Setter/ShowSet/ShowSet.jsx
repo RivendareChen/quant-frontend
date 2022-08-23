@@ -44,7 +44,7 @@ export default function ShowSet() {
             return (
                 <div>
                     <Badge status="processing"/> 
-                    <Button type='link' className={styles.policyBtn}>
+                    <Button type='link' className={styles.policyBtn} size="small">
                     <Link to={`/Policy/${text.id}`} target="_blank">
                     {text.msg}
                     </Link>
@@ -56,7 +56,7 @@ export default function ShowSet() {
             return (
                 <div>
                     <Badge status="success" />
-                    <Button type='link' className={styles.policyBtn}>
+                    <Button type='link' className={styles.policyBtn} size="small">
                     <Link to={`/Policy/${text.id}`} target="_blank">
                     {text.msg}
                     </Link>
@@ -68,7 +68,7 @@ export default function ShowSet() {
             return (
                 <div>
                 <Badge status="error" />
-                <Button type='link' className={styles.policyBtn}>
+                <Button type='link' className={styles.policyBtn} size="small">
                 <Link to={`/Policy/${text.id}`} target="_blank">
                 {text.msg}
                 </Link>
@@ -80,7 +80,7 @@ export default function ShowSet() {
         return (
             <div>
             <Badge status="default" />
-            <Button type='link'>状态未知</Button>
+            <Button type='link' size="small">未知</Button>
             </div>
         );
     }

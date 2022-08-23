@@ -1,30 +1,33 @@
 .mainInfoDiv{
-    width: 100%;min-height: 80px;
+    width: 100%;height: 5rem;
     background-color: #141826;
     border-bottom: solid #252A44 3px;
 }
 
 .name{
-    margin-left: 15px;margin-top: 5px;
+    margin-left: 1rem;margin-top: 0.8rem;
     float: left;
 }
 
 .star{
-    margin-left: 30px;margin-top: 20px;
+    margin-left: 2rem;margin-top: 1.3rem;
     float: left;
 }
 
 .data1{
-    margin-left: 50px;margin-top: 15px;
+    margin-left: 3rem;margin-top: 1.2rem;
     float: left;
+    font-size: 0.85rem;
 }
 
 .data{
-    margin-left: 20px;margin-top: 15px;
+    margin-left: 1.2rem;margin-top: 1.2rem;
     float: left;
+    font-size: 0.85rem;
 }
 
 .badgeText{
     color:whitesmoke;
+    font-size: 0.85rem;
 }
 

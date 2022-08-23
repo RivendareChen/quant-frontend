@@ -286,10 +286,10 @@ export default function MainK() {
             type: 'slider',
             xAxisIndex: [0, 1, 2], //控件联动
             start: 100,
-            end: 25,
+            end: 30,
             throttle: 10,
             top: '97%',
-            height: '2%',
+            height: '1.4%',
             borderColor: '#696969',
             textStyle: {
               color: '#dcdcdc'

@@ -4,14 +4,20 @@ body{
     background-color: #252A44;
 }
 
+.main{
+    padding-top: 2rem;
+}
+
 .alertDiv{
-    width: 30%; min-height: 100px;
-    margin-left: 35%; margin-top: 10px;
+    width: 30%; height: 100px;
+    margin-left: 35%; 
+    /* margin-top: 10px; */
 }
 
 .loginDiv{
-    width: 30%; min-height: 400px;
-    margin-left: 35%; margin-top: 100px;
+    width: 30%; height: 400px;
+    margin-left: 35%; 
+    margin-top: 50px;
     background-color: whitesmoke;
 }
 

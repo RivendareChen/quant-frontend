@@ -1,5 +1,22 @@
 /* @import '~antd/dist/antd.less'; */
 
+body{
+    overflow-y:auto;
+}
+
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #141826;
+    width: 6px;
+}
+body::-webkit-scrollbar-track{
+    background-color: #252A44;
+}
+
+
+
 .test{
     width: 200px;
     height: 100px;
@@ -13,27 +30,31 @@
     border-bottom-style: solid;
     border-bottom-color: #252A44;
     border-bottom-width: 3px;
+    border-right: solid #252A44 0.2rem;
 }
 
 .star{
-    min-height: 775px; 
+    height: 43rem; 
     color:white;
     background:#141826;
-    border-bottom: solid #252A44 3px;
+    border-bottom: solid #252A44 0.2rem;
     border-right: solid #252A44 3px;
+    overflow-y:hidden;
 }
 
 .main{
-    min-height: 775px;
+    height: 43rem;
     color: white;
     background: #141826;
-    border-bottom: solid #252A44 3px;
+    border-bottom: solid #252A44 0.2rem;
+    border-right: solid #252A44 0.2rem;
 }
 
 .policy{
     min-height: 400px;
     color: white;
     background: #141826;
+    border-right: solid #252A44 0.2rem;
 }
 
 .info{

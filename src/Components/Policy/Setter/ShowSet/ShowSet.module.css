@@ -4,9 +4,10 @@
 }
 
 .showtable{
-    font-size: 10px;
+    font-size: 0.3rem;
 }
 
 .policyBtn{
     color: rgb(36,131,255) !important;
+    font-size: 0.3rem;
 }

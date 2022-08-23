@@ -1,13 +1,18 @@
 .selectDiv{
     float: right;
-    margin-right: 20px;margin-top: 20px;
+    margin-right: 1.3rem;margin-top: 1.3rem;
 }
 
 .select{
-    width: 180px;
+    width: 11rem;
+}
+
+.selectBtn{
+    width: 4rem;
 }
 
 .download{
     float: right;
-    margin-top: 20px;margin-right: 30px;
+    margin-top: 1.3rem;margin-right: 1.5rem;
+    width: 7rem;
 }

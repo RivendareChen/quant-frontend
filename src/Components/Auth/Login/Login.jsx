@@ -63,7 +63,7 @@ export default function Login() {
 
 
   return (
-      <>
+      <div className={styles.main}>
         <div className={styles.alertDiv}>
           <AuthInfo></AuthInfo>
         </div>
@@ -122,6 +122,6 @@ export default function Login() {
 
           <Divider></Divider>
         </div>
-      </>
+      </div>
   )
 };

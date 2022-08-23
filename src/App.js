@@ -12,8 +12,6 @@ import styles from './App.module.css';
 const {Header, Footer, Sider, Content } = Layout;
 
 const App = () => {
-
-  
   
   return(
   <div className="App">

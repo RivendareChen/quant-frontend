@@ -1,21 +1,21 @@
 .main{
     float: left;
-    width: 82%;min-height: 695px;
+    width: 82%;height: 37.8rem;
     background-color: #141826;
     border-right: solid #252A44 3px;
 }
 
 .menu{
-    max-height: 45px;width: 100%;
-    font-size: 8px !important;
+    height: 3rem;width: 100%;
+    font-size: 0.7rem !important;
     text-align: center;
     background-color: #141826 !important;
     border-bottom: solid #252A44 3px !important;
 }
 
 .kdata{
-    min-height:635px; width:100%;
-    margin-top: 15px;
+    height:33.8rem; width:100%;
+    margin-top: 1rem;
     background-color: #141826;
     
 }

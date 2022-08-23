@@ -68,8 +68,8 @@ export default function MainInfo() {
     const trendStr = trend>0? '+'+String(trend):String(trend);
     return (
       <div className={styles.name}>
-              <div style={{fontSize:'25px', color:fontColor}}>￥{infoData.price}</div>
-              <div style={{textAlign:'center', color:fontColor}}>{trendStr}%</div>
+              <div style={{fontSize:'1.3rem', color:fontColor}}>￥{infoData.price}</div>
+              <div style={{fontSize:'0.3rem',textAlign:'center', color:fontColor}}>{trendStr}%</div>
           </div>
     );
   }
@@ -78,13 +78,13 @@ export default function MainInfo() {
       const index = currStar.total.children.findIndex((item)=>item===code);
       if(index>=0){
           return <StarFilled 
-                  style={{fontSize:'35px', color:'yellow'}}
+                  style={{fontSize:'2.5rem', color:'yellow'}}
                   onClick={handleStar}
                   />;
       }
       else{
           return <StarOutlined 
-                  style={{fontSize:'35px'}}
+                  style={{fontSize:'2.5rem'}}
                   onClick={handleStar}
                  />
       }
@@ -123,8 +123,8 @@ export default function MainInfo() {
     <div className={styles.mainInfoDiv}>
       
           <div className={styles.name}>
-              <div style={{fontSize:'25px'}}>{infoData.name}{infoData.code}</div>
-              <div style={{textAlign:'center'}}>{infoData.en}</div>
+              <div style={{fontSize:'1.3rem'}}>{infoData.name}{infoData.code}</div>
+              <div style={{fontSize:'.3rem',textAlign:'center'}}>{infoData.en}</div>
           </div>
           {showPrice(infoData.trend)}
           <div className={styles.star}>

@@ -130,7 +130,7 @@ export default function ItemSet() {
                 <Select 
                     defaultValue={0}
                     onChange={(value)=>setAmount({type:value,value:''})}
-                    style={{width:'30%'}}
+                    style={{width:'40%'}}
                 >
                 <Option value={0}>总金额</Option>
                 <Option value={1}>总数量</Option>
@@ -138,7 +138,7 @@ export default function ItemSet() {
                 <Input 
                 value={amount.value}
                 onChange={(e)=>{setAmount({type:amount.type,value:e.target.value.replace(/[^\-?\d.]/g,'')})}}
-                style={{width:'70%'}}
+                style={{width:'60%'}}
                 allowClear
                 />
             </Input.Group>

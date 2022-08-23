@@ -137,7 +137,7 @@ export default function Register() {
 
 
     return (
-        <>
+        <div className={styles.main}>
             <div className={styles.alertDiv}>
             <AuthInfo></AuthInfo>
             </div>
@@ -205,6 +205,6 @@ export default function Register() {
             <Divider></Divider>
 
             </div>
-        </>
+        </div>
     )
 };

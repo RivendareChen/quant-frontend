@@ -1,6 +1,6 @@
 .main{
     float: right;
-    width: 18%;height: 695px;
+    width: 18%;height: 37.8rem;
     background-color: #141826;
 }
 
@@ -16,7 +16,8 @@
 
 
 .col{
-    margin-top: 8px;
+    margin-top: 0.5rem;
     color: gray;
     text-align: center;
+    font-size: 0.8rem;
 }

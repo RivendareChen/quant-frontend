@@ -109,6 +109,7 @@ export default function Operate() {
         {showFolders()}
         </Select>
         <Button
+        className={styles.selectBtn}
         type='primary'
         onClick={handleSelect}
         >加入
