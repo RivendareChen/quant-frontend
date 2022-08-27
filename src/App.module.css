@@ -61,4 +61,6 @@ body::-webkit-scrollbar-track{
     min-height: 15px;
     color: white;
     background: #252A44;
+    text-align: center;
+    user-select: none;
 }

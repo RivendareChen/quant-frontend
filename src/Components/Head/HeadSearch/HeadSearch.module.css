@@ -1,0 +1,36 @@
+:global(.head-search){
+    width: 30%;height: 32px;
+    float: left;
+    margin-left: 35%;
+    margin-top: 15px;
+    background-color: #252A44;
+}
+
+:global(.head-search .ant-input-affix-wrapper){
+    background-color: #252A44;
+    border:none !important;
+}
+
+:global(.head-search .ant-input-group-addon){
+    background-color: #252A44;
+}
+
+:global(.head-search .ant-input-clear-icon){
+    color:whitesmoke;
+}
+
+:global(.head-search .ant-input-search-button){
+    background-color: #252A44;
+    border:none !important;
+    color:whitesmoke;
+}
+
+:global(.head-search .ant-input){
+    background-color: #252A44;
+    color:whitesmoke;
+}
+
+:global(.head-search .ant-input)::selection {
+    background-color:#d3d3d3; 
+    color:#666;
+}

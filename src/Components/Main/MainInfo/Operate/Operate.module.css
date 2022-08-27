@@ -1,14 +1,25 @@
-.selectDiv{
+:global(.subSatrDiv){
     float: right;
     margin-right: 1.3rem;margin-top: 1.3rem;
+    background-color: #252A44;
+}
+
+:global(.subSatrDiv .ant-select-selector){
+    background-color: #252A44 !important;
+    border:none !important;
+}
+:global(.subSatrDiv .ant-select-arrow){
+    color: gray;
 }
 
 .select{
     width: 11rem;
+    /* background-color: #252A44; */
 }
 
 .selectBtn{
     width: 4rem;
+    
 }
 
 .download{

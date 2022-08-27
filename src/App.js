@@ -30,7 +30,7 @@ const App = () => {
       <Content className={styles.policy}>
         <Policy></Policy>
       </Content>
-      <Footer className={styles.info}></Footer>
+      <Footer className={styles.info}>投资有风险 入市需谨慎</Footer>
     </Layout>
   </div>
 )};

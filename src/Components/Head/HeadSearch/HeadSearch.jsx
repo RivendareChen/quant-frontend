@@ -6,7 +6,7 @@ import {change} from '../../../AppSlice';
 import { postRequest } from "../../../Tools/netRequest";
 
 
-import './HeadSearch.less';
+import './HeadSearch.module.css';
 
 const {Search} = Input;
 
@@ -43,14 +43,14 @@ const HeadSearch = ()=>{
     }
 
     return (
-
+            <div className="head-search">
             <Search
-            className="head-search"
             placeholder="搜索股票 仅支持港股标的证券"
             allowClear
             onSearch={handleSearch}
             enterButton
             />
+            </div>
     );
 };
 

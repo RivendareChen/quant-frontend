@@ -96,7 +96,7 @@ export default function Operate() {
     
     return (
     <div>
-        <div className={styles.selectDiv}>
+        <div className="subSatrDiv">
         <Select
         className={styles.select}
         showSearch
