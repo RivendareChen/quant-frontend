@@ -1,7 +1,36 @@
-.main{
+:global(.mainShowPolicySetter){
     width: 96%;
     margin-left: 2%;;margin-top: 20px;margin-bottom: 10px;
+    user-select: none;
 }
+
+
+:global(.mainShowPolicySetter .ant-table-cell){
+    background-color: #141826;
+    color:#ddd;
+    border-bottom: #252A44 1px solid;
+}
+
+:global(.mainShowPolicySetter .ant-table-cell-row-hover){
+    background-color: #252A44 !important;
+}
+
+
+:global(.mainShowPolicySetter .ant-table-thead > tr > th){
+    background-color: #141826 !important;
+    color:yellowgreen;
+    border-bottom: #252A44 5px solid;
+    user-select: none;
+}
+
+:global(.mainShowPolicySetter .anticon-right){
+    color:whitesmoke
+}
+
+:global(.mainShowPolicySetter .anticon-left){
+    color:whitesmoke
+}
+
 
 .showtable{
     font-size: 0.3rem;

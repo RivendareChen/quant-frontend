@@ -1,7 +1,33 @@
+:global(.TradeDetailMain){
+    width: 98%;
+    margin-left: 1%;margin: 5px;
+    background-color: #252A44;
+}
 
 .titleDiv{
     text-align: center;
-    margin-top: 10px;
+    margin-top: 10px;margin-bottom: 0px;
+    background-color: #252A44;
+    color:whitesmoke;
+}
+
+:global(.TradeDetailMain .ant-empty-description){
+    color: #ddd;
+}
+
+
+:global(.TradeDetailMain .ant-descriptions){
+    background-color: #252A44 !important;
+}
+
+:global(.TradeDetailMain .ant-descriptions-item-label){
+    background-color: #252A44;
+    color:yellowgreen;
+}
+
+:global(.TradeDetailMain .ant-descriptions-item-content){
+    background-color: #252A44 !important;
+    color:#ddd;
 }
 
 :global(.TradeDetailMain .ant-descriptions){
@@ -11,4 +37,26 @@
 
 :global(.TradeDetailMain .ant-descriptions-item-content){
     background-color: whitesmoke;
+}
+
+.tradeTable{
+    margin-top: 15px;margin-bottom: 15px;
+}
+
+:global(.TradeDetailMain .ant-table-cell){
+    background-color: #141826;
+    color:#ddd;
+    border-bottom: #252A44 1px solid;
+}
+
+:global(.TradeDetailMain .ant-table-cell-row-hover){
+    background-color: #252A44 !important;
+}
+
+
+:global(.TradeDetailMain .ant-table-thead > tr > th){
+    background-color: #141826 !important;
+    color:yellowgreen;
+    border-bottom: #252A44 5px solid;
+    user-select: none;
 }

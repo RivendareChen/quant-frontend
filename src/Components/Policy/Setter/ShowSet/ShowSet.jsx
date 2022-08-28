@@ -136,12 +136,12 @@ export default function ShowSet() {
     },[]);
 
     return (
-        <div className={styles.main}>
+        <div className="mainShowPolicySetter">
             <Table
             className={styles.showtable}
             columns={columns}
             dataSource={handleItem(currGroup)}
-            size='middle'
+            size='middle'         
             locale={{
                 triggerDesc: '',
                 triggerAsc: '',

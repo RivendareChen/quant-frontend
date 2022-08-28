@@ -6,6 +6,7 @@
 
 :global(.subSatrDiv .ant-select-selector){
     background-color: #252A44 !important;
+    color:aliceblue;
     border:none !important;
 }
 :global(.subSatrDiv .ant-select-arrow){

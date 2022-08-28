@@ -64,10 +64,12 @@ export default function Trade() {
   
     return (
       <>
-      <div className={styles.infoDiv}>
+      <div className="tradeInfoTotalDiv">
         <Table
         columns={columns}
         dataSource={handleInfo(infoData)}
+        className={styles.total}
+        size="middle"
         locale={{
           triggerDesc: '',
           triggerAsc: '',

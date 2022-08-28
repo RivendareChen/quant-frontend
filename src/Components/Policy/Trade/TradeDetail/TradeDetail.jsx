@@ -84,18 +84,20 @@ export default function TradeDetail(props) {
         else{
             return (
                 <div className='TradeDetailMain'>
-                <Descriptions title={<div className={styles.titleDiv}>交易详情</div>} bordered size='small'>
+                <Descriptions title={<div className={styles.titleDiv}>交易详情</div>}  size='small'>
                 <Descriptions.Item label="订单编号" >{detailData.info.name}</Descriptions.Item>
-                <Descriptions.Item label="交易类型" span={2}>{detailData.info.type}</Descriptions.Item>
-                <Descriptions.Item label="交易人" span={1}>{detailData.username}</Descriptions.Item>
+                <Descriptions.Item label="交易类型" span={1}>{detailData.info.type}</Descriptions.Item>
                 <Descriptions.Item label="交易金额" span={1}>￥{detailData.info.total}</Descriptions.Item>
-                <Descriptions.Item label="交易状态" span={1}>{showStateTag()}</Descriptions.Item>
                 <Descriptions.Item label="策略设置时间">{detailData.info.startTime}</Descriptions.Item>
                 <Descriptions.Item label="策略触发时间">{detailData.info.tradeTime}</Descriptions.Item>
+                <Descriptions.Item label="交易状态" span={1}>{showStateTag()}</Descriptions.Item>
                 </Descriptions>
                 <Table
                 columns={columns}
                 dataSource={handleDetailData()}
+                className={styles.tradeTable}
+                size="small"
+                pagination={false}
                 locale={{
                     triggerDesc: '',
                     triggerAsc: '',

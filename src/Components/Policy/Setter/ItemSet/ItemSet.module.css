@@ -1,7 +1,6 @@
-.main{
+:global(.mainItemStterDiv){
     width: 90%;
 }
-
 
 .setterSwitchDiv{
     margin-top: 25px;margin-bottom: 20px;margin-left: 10px;
@@ -9,34 +8,59 @@
 }
 
 .buysaleSwitch{
-    background-color: #F9293E !important;
     border:none !important;
 }
-
-
-/* :global(.setterMainDiv .ant-switch-checked){
-    background-color: #F9293E;
-} 
-
-:global(.setterMainDiv .ant-switch){
-    background-color: #00aa3b;
-}  */
-
-
 
 .stockInput{
     width: 100%;
     margin-top: 20px;margin-left: 10px;
+    background-color: #141826;
 }
+
+:global(.mainItemStterDiv .ant-input-affix-wrapper){
+    background-color: #141826;
+    border: none;
+}
+
+:global(.mainItemStterDiv .ant-input){
+   background-color: #141826;
+   color:whitesmoke;
+}
+
+:global(.mainItemStterDiv .ant-select-selector){
+    background-color: #141826 !important;
+    border:none !important;
+    color:#ddd;
+ }
+
+:global(.mainItemStterDiv .ant-select-arrow){
+    color: gray;
+    /* background-color: #141826; */
+}
+
+:global(.mainItemStterDiv .ant-switch){
+    background-image: none;
+}
+
+:global(.mainItemStterDiv .anticon-close-circle){
+    color:gray;
+}
+
+
+
+
 
 .amountInput{
     width: 100%;
     margin-top: 20px;margin-left: 10px;
+    background-color: #141826;
+    font-size: 1rem;
 }
 
 .conditionDiv{
     margin-top: 20px;margin-left: 10px;
     width: 100%;
+    background-color: #141826;
 }
 
 .buttonDiv{

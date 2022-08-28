@@ -157,7 +157,7 @@ export default function ToTalSet() {
     
     return (
         <div>
-            <Input.Group compact className={styles.setDiv}>
+            <Input.Group compact className="setPolicyTimeDiv">
             <RangePicker 
             showTime
             value={[tradeTime.start,tradeTime.end]}
@@ -187,11 +187,11 @@ export default function ToTalSet() {
             </Input.Group>
             
             <List
-            className={styles.listDiv}
+            className="totalSetterListDiv"
             dataSource={policyGroup}
             renderItem={handlePolicyData}
             size="small"
-            // header={<div>Header</div>}
+            split={false}
             />
         </div>
         

@@ -115,8 +115,17 @@ export default function ItemSet() {
         });
     }
 
+    const handleSwitchColor = (type)=>{
+        if(type === true){
+            return '#F9293E';
+        }
+        else{
+            return '#00AA3B';
+        }
+    }
+
     return (
-        <div className={styles.main}>
+        <div className="mainItemStterDiv">
                
             <Input className={styles.stockInput}
             value={stockCode}
@@ -130,15 +139,16 @@ export default function ItemSet() {
                 <Select 
                     defaultValue={0}
                     onChange={(value)=>setAmount({type:value,value:''})}
-                    style={{width:'40%'}}
+                    style={{width:'50%'}}
                 >
                 <Option value={0}>总金额</Option>
                 <Option value={1}>总数量</Option>
                 </Select>
-                <Input 
+                <Input
                 value={amount.value}
+                placeholder="请输入数值"
                 onChange={(e)=>{setAmount({type:amount.type,value:e.target.value.replace(/[^\-?\d.]/g,'')})}}
-                style={{width:'60%'}}
+                style={{width:'50%'}}
                 allowClear
                 />
             </Input.Group>
@@ -146,19 +156,20 @@ export default function ItemSet() {
             <Input.Group compact className={styles.conditionDiv}>
             <Cascader
                 options={cascaderOption}
-                placeholder="请选择策略触发条件"
+                placeholder="策略条件"
                 onChange={(value)=>{
                     setCondition(value);
                     setConditionValue('');
                 }}
-                style={{width:'40%'}}
+                style={{width:'50%'}}
+                allowClear={false}
             />
             <Input
             placeholder='请输入阈值'
             value={conditionValue}
             disabled={disableConditionInput()}
             onChange={(e)=>{setConditionValue(e.target.value.replace(/[^\-?\d.]/g,''))}}
-            style={{width:'60%'}}
+            style={{width:'50%'}}
             allowClear
             />
             </Input.Group>
@@ -168,6 +179,7 @@ export default function ItemSet() {
              className={styles.buysaleSwitch}
              checkedChildren="买入" 
              unCheckedChildren="卖出"
+             style={{backgroundColor:handleSwitchColor(operaType)}}
              onChange={()=>setOperaType(!operaType)}
              defaultChecked />
             </div>

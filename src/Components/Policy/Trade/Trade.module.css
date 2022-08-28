@@ -1,13 +1,45 @@
-.infoDiv{
+:global(.tradeInfoTotalDiv){
     float: left;
     margin-left: 5px;margin-top: 5px;
     width: 49%;
+    background-color: #252A44;
+    border-radius: 2px;
+}
+
+:global(.tradeInfoTotalDiv .ant-table-thead > tr > th){
+    background-color: #141826 !important;
+    color:yellowgreen;
+    border-bottom: #252A44 5px solid;
+    user-select: none;
+}
+
+:global(.tradeInfoTotalDiv .ant-table-cell){
+    background-color: #141826;
+    color:#ddd;
+    border-bottom: #252A44 1px solid;
+}
+
+:global(.tradeInfoTotalDiv .ant-table-cell-row-hover){
+    background-color: #252A44 !important;
+}
+
+:global(.tradeInfoTotalDiv .anticon-left){
+    color:whitesmoke
+}
+
+:global(.tradeInfoTotalDiv .anticon-right){
+    color:whitesmoke
+}
+
+.total{
+    width: 98%;
+    margin-left: 1%;margin-top: 10px;
 }
 
 .detailDiv{
     float: right;
     margin-right: 5px;margin-top: 5px;margin-bottom: 5px;
     width: 49%;
-    background-color: whitesmoke;
+    background-color: #252A44;
     border-radius: 3px;
 }
