@@ -78,13 +78,13 @@ export default function MainInfo() {
       const index = currStar.total.children.findIndex((item)=>item===code);
       if(index>=0){
           return <StarFilled 
-                  style={{fontSize:'2.5rem', color:'yellow'}}
+                  style={{fontSize:'2rem', color:'yellow'}}
                   onClick={handleStar}
                   />;
       }
       else{
           return <StarOutlined 
-                  style={{fontSize:'2.5rem'}}
+                  style={{fontSize:'2rem'}}
                   onClick={handleStar}
                  />
       }

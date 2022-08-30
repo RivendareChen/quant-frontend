@@ -71,6 +71,10 @@
     background-color: #202030 !important;
 }
 
+:global(.folder .ant-menu){
+    background-color: #141826 !important;
+}
+
 :global(.folder){
 background-color: #0f121f !important;
 }
