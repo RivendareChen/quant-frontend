@@ -7,3 +7,8 @@
 * 运行`npm install`安装依赖包。
 
 * 运行`npm start`启动前端程序。
+
+
+### 运行效果
+
+<img src='./doc/images/img-main.png' width=100%>
