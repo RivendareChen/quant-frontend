@@ -193,7 +193,8 @@ export default function MainK() {
             splitNumber: 20,
             min: 'dataMin',
             max: 'dataMax'
-          }, { //交易量图
+          }, 
+          { //交易量图
             type: 'category',
             scale: true,
             gridIndex: 1,
@@ -203,7 +204,8 @@ export default function MainK() {
               color: '#9b9da9',
               // fontSize: 10
             },
-          }, { //MACD图
+          }, 
+          { //MACD图
             type: 'category',
             scale: true,
             gridIndex: 2,
@@ -231,7 +233,8 @@ export default function MainK() {
               onZero: false,
               show: false,
             }
-          }, { //交易图
+          }, 
+          { //交易图
             gridIndex: 1, splitNumber: 3, 
             axisLine: {
               onZero: false
@@ -260,8 +263,8 @@ export default function MainK() {
               }
               // fontSize: 8
             },
-          }, { //MACD图
-            // z:4, 
+          }, 
+          { //MACD图
             gridIndex: 2,splitNumber: 3,
             axisLine: {
               onZero: false
@@ -308,7 +311,8 @@ export default function MainK() {
         animation: true, //动画效果
         backgroundColor: bgColor,
         blendMode: 'source-over',
-        series: [{
+        series: [
+          {
             name: 'K线',
             type: 'candlestick',
             data: retData.datas,
@@ -316,28 +320,23 @@ export default function MainK() {
             large: true,
             largeThreshold: 100,
             itemStyle: {
-              
                 color: upColor, //fd2e2e  ff4242
                 color0: downColor,
                 borderColor: upColor,
                 borderColor0: downColor,
-      
                 //opacity:0.8
-              
             },
-      
-          }, {
+          }, 
+          {
             name: 'MA5',
             type: 'line',
             data: retData.mas.ma5,
             smooth: true,
             symbol: "none", //隐藏选中时有小圆点
             lineStyle: {
-              
                 opacity: 0.8,
                 color: '#39afe6',
                 width: 1
-              
             },
           },
           {
@@ -367,7 +366,8 @@ export default function MainK() {
                 color: ma30Color
               
             }
-          }, {
+          }, 
+          {
             name: 'VOL',
             type: 'bar',
             xAxisIndex: 1,
@@ -388,7 +388,8 @@ export default function MainK() {
               },
               
             }
-          }, {
+          }, 
+          {
             name: 'MACD',
             type: 'bar',
             xAxisIndex: 2,
@@ -408,7 +409,8 @@ export default function MainK() {
                 },
               
             }
-          }, {
+          }, 
+          {
             name: 'DIF',
             type: 'line',
             symbol: "none",
@@ -421,7 +423,8 @@ export default function MainK() {
                 width: 1
               
             }
-          }, {
+          }, 
+          {
             name: 'DEA',
             type: 'line',
             symbol: "none",
